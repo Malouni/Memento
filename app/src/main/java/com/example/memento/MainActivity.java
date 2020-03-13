@@ -38,15 +38,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
 
             case R.id.study_work:
-
+                Intent intent1 = new Intent(MainActivity.this,create_StudyorWork.class);
+                startActivity(intent1);
                 break;
 
             case R.id.all_reminders:
-
+                Intent intent2 = new Intent(MainActivity.this,create_StudyorWork.class);
+                startActivity(intent2);
                 break;
 
             case R.id.daily_reminders:
-
+                Intent intent3 = new Intent(MainActivity.this,Create_Daily.class);
+                startActivity(intent3);
                 break;
 
             default:

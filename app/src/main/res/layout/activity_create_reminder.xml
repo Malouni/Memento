@@ -25,18 +25,18 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/Event"
         android:layout_width="216dp"
         android:layout_height="79dp"
         android:layout_marginTop="40dp"
         android:text="Event"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.543"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
 
     <Button
-        android:id="@+id/button6"
+        android:id="@+id/study_work"
         android:layout_width="216dp"
         android:layout_height="79dp"
         android:layout_marginTop="40dp"
@@ -44,10 +44,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button" />
+        app:layout_constraintTop_toBottomOf="@+id/Event" />
 
     <Button
-        android:id="@+id/button7"
+        android:id="@+id/daily"
         android:layout_width="216dp"
         android:layout_height="79dp"
         android:layout_marginTop="40dp"
@@ -55,16 +55,16 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button6" />
+        app:layout_constraintTop_toBottomOf="@+id/study_work" />
 
     <Button
-        android:id="@+id/button8"
+        android:id="@+id/back"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Back"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button7" />
+        app:layout_constraintTop_toBottomOf="@+id/daily" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
