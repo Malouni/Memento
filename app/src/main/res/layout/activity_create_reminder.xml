@@ -11,7 +11,7 @@
         android:id="@+id/textView"
         android:layout_width="286dp"
         android:layout_height="106dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="76dp"
         android:fontFamily="@font/italianno"
         android:gravity="center_vertical"
         android:style="vivaldi"
@@ -27,13 +27,45 @@
 
     <Button
         android:id="@+id/button"
-        android:layout_width="180dp"
-        android:layout_height="78dp"
-        android:layout_marginTop="76dp"
-        android:text="Button"
+        android:layout_width="216dp"
+        android:layout_height="79dp"
+        android:layout_marginTop="40dp"
+        android:text="Event"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.658"
+        app:layout_constraintHorizontal_bias="0.543"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+    <Button
+        android:id="@+id/button6"
+        android:layout_width="216dp"
+        android:layout_height="79dp"
+        android:layout_marginTop="40dp"
+        android:text="Study/Work"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button" />
+
+    <Button
+        android:id="@+id/button7"
+        android:layout_width="216dp"
+        android:layout_height="79dp"
+        android:layout_marginTop="40dp"
+        android:text="Daily"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button6" />
+
+    <Button
+        android:id="@+id/button8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Back"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button7" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
