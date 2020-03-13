@@ -15,7 +15,6 @@
         android:layout_marginTop="4dp"
         android:fontFamily="@font/italianno"
         android:gravity="center_vertical"
-        android:style="vivaldi"
         android:text="Create Study"
         android:textAlignment="center"
         android:textColor="#FFC107"

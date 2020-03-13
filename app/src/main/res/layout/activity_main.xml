@@ -8,13 +8,10 @@
     android:background="@drawable/books"
 
 
-
-
     >
 
     <TextView
         android:id="@+id/textView"
-        android:style="vivaldi"
         android:layout_width="286dp"
         android:layout_height="106dp"
         android:layout_marginTop="140dp"
