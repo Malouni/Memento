@@ -2,6 +2,7 @@ package com.example.memento;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -32,7 +33,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         switch (v.getId()) {
 
             case R.id.create_reminder:
-
+                Intent intent = new Intent(MainActivity.this,Create_reminder.class);
+                startActivity(intent);
                 break;
 
             case R.id.study_work:
