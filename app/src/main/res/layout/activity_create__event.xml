@@ -77,7 +77,7 @@
         app:layout_constraintTop_toBottomOf="@+id/chooseDate" />
 
     <TextView
-        android:id="@+id/ChooseTime"
+        android:id="@+id/ss"
         android:layout_width="158dp"
         android:layout_height="57dp"
         android:layout_marginTop="32dp"
@@ -94,7 +94,7 @@
         app:layout_constraintTop_toBottomOf="@+id/ChooseLocation" />
 
     <Button
-        android:id="@+id/button11"
+        android:id="@+id/ChooseTime"
         android:layout_width="158dp"
         android:layout_height="57dp"
         android:layout_marginTop="32dp"
@@ -102,7 +102,7 @@
         android:text="Time"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.487"
-        app:layout_constraintStart_toEndOf="@+id/ChooseTime"
+        app:layout_constraintStart_toEndOf="@+id/ss"
         app:layout_constraintTop_toBottomOf="@+id/ChooseLocation" />
 
     <Button
@@ -116,7 +116,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.063"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ChooseTime"
+        app:layout_constraintTop_toBottomOf="@+id/ss"
         app:layout_constraintVertical_bias="0.529" />
 
     <Button
@@ -129,6 +129,6 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/back"
-        app:layout_constraintTop_toBottomOf="@+id/button11" />
+        app:layout_constraintTop_toBottomOf="@+id/ChooseTime" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

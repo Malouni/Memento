@@ -7,11 +7,10 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 
 public class Create_Daily extends AppCompatActivity implements View.OnClickListener {
 
-    Button back,ChooseDate,ChooseLocation,ChooseTime,Save;
+    Button back,ChooseLocation,ChooseTime,Save;
     String daily_event;
     EditText name = (EditText) findViewById(R.id.Name);
     EditText Description = (EditText) findViewById(R.id.Description);
@@ -24,13 +23,11 @@ public class Create_Daily extends AppCompatActivity implements View.OnClickListe
 
         Save = (Button) findViewById(R.id.save);
         Save.setOnClickListener(this);
-        ChooseDate = (Button) findViewById(R.id.chooseDate);
-        ChooseDate.setOnClickListener(this);
         ChooseLocation = (Button) findViewById(R.id.ChooseLocation);
         ChooseLocation.setOnClickListener(this);
         back = (Button) findViewById(R.id.back);
         back.setOnClickListener(this);
-        ChooseTime = (Button) findViewById(R.id.ChooseTime);
+        ChooseTime = (Button) findViewById(R.id.ss);
         ChooseTime.setOnClickListener(this);
 
 
@@ -48,12 +45,8 @@ public class Create_Daily extends AppCompatActivity implements View.OnClickListe
 
                 break;
 
-            case R.id.chooseDate:
 
-
-                break;
-
-            case R.id.ChooseTime:
+            case R.id.ss:
 
 
                 break;

@@ -53,66 +53,48 @@
         app:layout_constraintTop_toBottomOf="@+id/Name" />
 
     <Button
-        android:id="@+id/chooseDate"
-        android:layout_width="0dp"
-        android:layout_height="57dp"
-        android:layout_marginTop="28dp"
-        android:background="#ffff"
-        android:text="Choose Date"
-
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Description" />
-
-    <Button
         android:id="@+id/ChooseLocation"
         android:layout_width="0dp"
         android:layout_height="57dp"
-        android:layout_marginTop="24dp"
         android:background="#ffff"
         android:text="Choose Location"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/chooseDate" />
+        tools:layout_editor_absoluteY="403dp" />
+
+    <Button
+        android:id="@+id/ss"
+        android:layout_width="0dp"
+        android:layout_height="57dp"
+        android:background="#ffff"
+        android:text="Choose Time"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="492dp" />
 
     <Button
         android:id="@+id/back"
         android:layout_width="158dp"
         android:layout_height="57dp"
         android:layout_marginStart="16dp"
-        android:layout_marginBottom="28dp"
+        android:layout_marginBottom="72dp"
         android:background="#ffff"
         android:text="Back"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ChooseTime" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/save"
         android:layout_width="158dp"
         android:layout_height="57dp"
-        android:layout_marginBottom="16dp"
+        android:layout_marginBottom="72dp"
         android:background="#ffff"
         android:text="Save"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.797"
-        app:layout_constraintStart_toEndOf="@+id/back"
-        app:layout_constraintTop_toBottomOf="@+id/ChooseTime"
-        app:layout_constraintVertical_bias="0.323" />
-
-    <Button
-        android:id="@+id/ChooseTime"
-        android:layout_width="369dp"
-        android:layout_height="68dp"
-        android:background="#FFFFFF"
-        android:text="Reminded When"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.493"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ChooseLocation"
-        app:layout_constraintVertical_bias="0.146" />
+        app:layout_constraintStart_toEndOf="@+id/back" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
