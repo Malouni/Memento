@@ -55,7 +55,7 @@
     </LinearLayout>
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/back"
         android:layout_width="172dp"
         android:layout_height="73dp"
         android:text="back"
