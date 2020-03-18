@@ -1,6 +1,7 @@
 package com.example.memento;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -18,6 +19,8 @@ public class event_reminders extends AppCompatActivity implements View.OnClickLi
     TextView title,description;
     int amount_of_event_reminders;
     ListView lv;
+    String first_string;
+    int amount;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,22 +42,34 @@ public class event_reminders extends AppCompatActivity implements View.OnClickLi
 
 
 
-        final Storage  event = new Storage();
+        final SharedPreferences pref = getApplicationContext().getSharedPreferences("Event", 0);
+
+        amount = pref.getInt("Amount", -1);
+
         String[] list_event;
-        amount_of_event_reminders = event.get_amount_of_event_reminders();
 
-
-        if(amount_of_event_reminders==0){
+        if(amount==-1){
             list_event = new String[1];
             list_event[0]="The list is empty";
-        }
+        }else{
+            list_event = new String[amount];
 
-        else{
-            list_event = new String[amount_of_event_reminders];
+            for(int i=0;i<amount;i++){
 
-            for (int i = 0; i < list_event.length; i++) {
-                list_event[i] = event.get_event_reminder(i);
+                String event = pref.getString(String.valueOf(i),"");
+
+                for(int j=0;j<event.length();j++){
+
+                    if(event.charAt(j)==';'){
+                        first_string=event.substring(0,j);
+                    }
+
+                }
+
+                list_event[i]=first_string;
             }
+
+
         }
 
         lv = (ListView) findViewById(R.id.listView);
@@ -65,7 +80,7 @@ public class event_reminders extends AppCompatActivity implements View.OnClickLi
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position,
                                     long id) {
-                if(amount_of_event_reminders==0){
+                if(amount==-1){
 
                 }else{
                     lv.setVisibility(View.INVISIBLE);
@@ -74,15 +89,15 @@ public class event_reminders extends AppCompatActivity implements View.OnClickLi
                     description.setVisibility(View.VISIBLE);
                     save_button.setVisibility(View.VISIBLE);
                     back2.setVisibility(View.VISIBLE);
-                  String event_description = event.get_event_reminder(position);
+                    String event_description = pref.getString(String.valueOf(position),"");
 
-                  for(int i=0;i<event_description.length();i++){
+                    for(int i=0;i<event_description.length();i++){
 
-                      if(event_description.charAt(i)==';'){
-                         title.setText(String.valueOf(event_description.substring(0,i)));
-                         description.setText(String.valueOf(event_description.substring(i,event_description.length())));
-                      }
-                  }
+                        if(event_description.charAt(i)==';'){
+                            title.setText(String.valueOf(event_description.substring(0,i)));
+                            description.setText(String.valueOf(event_description.substring(i,event_description.length())));
+                        }
+                    }
 
                 }
             }

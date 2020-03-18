@@ -3,6 +3,7 @@ package com.example.memento;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -17,6 +18,8 @@ public class Daily_Reminder extends AppCompatActivity implements View.OnClickLis
     TextView title,description;
     int amount_of_daily_reminders;
     ListView lv;
+    int amount;
+    String first_string;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,24 +40,36 @@ public class Daily_Reminder extends AppCompatActivity implements View.OnClickLis
         back2 = (Button) findViewById(R.id.back2);
         back.setOnClickListener(this);
 
+        final SharedPreferences pref = getApplicationContext().getSharedPreferences("Daily", 0);
 
-        final Storage daily = new Storage();
+        amount = pref.getInt("Amount", -1);
+
         String[] list_daily;
-        amount_of_daily_reminders = daily.get_amount_of_daily_reminders();
+
+        if(amount==-1){
+          list_daily = new String[1];
+          list_daily[0]="The list is empty";
+        }else{
+          list_daily = new String[amount];
+
+          for(int i=0;i<amount;i++){
+
+              String event = pref.getString(String.valueOf(i),"");
+
+              for(int j=0;j<event.length();j++){
+
+                  if(event.charAt(j)==';'){
+                      first_string=event.substring(0,j);
+                  }
+
+              }
+
+              list_daily[i]=first_string;
+          }
 
 
-        if(amount_of_daily_reminders==0){
-            list_daily = new String[1];
-            list_daily[0]="The list is empty";
         }
 
-        else{
-            list_daily = new String[amount_of_daily_reminders];
-
-            for (int i = 0; i < list_daily.length; i++) {
-                list_daily[i] = daily.get_daily_reminder(i);
-            }
-        }
 
         lv = (ListView) findViewById(R.id.listView);
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, list_daily);
@@ -64,7 +79,7 @@ public class Daily_Reminder extends AppCompatActivity implements View.OnClickLis
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position,
                                     long id) {
-                if(amount_of_daily_reminders==0){
+                if(amount==-1){
 
                 }else{
                     lv.setVisibility(View.INVISIBLE);
@@ -73,7 +88,7 @@ public class Daily_Reminder extends AppCompatActivity implements View.OnClickLis
                     description.setVisibility(View.VISIBLE);
                     save_button.setVisibility(View.VISIBLE);
                     back2.setVisibility(View.VISIBLE);
-                    String daily_description = daily.get_daily_reminder(position);
+                    String daily_description = pref.getString(String.valueOf(position),"");
 
                     for(int i=0;i<daily_description.length();i++){
 

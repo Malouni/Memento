@@ -3,6 +3,7 @@ package com.example.memento;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -14,6 +15,7 @@ public class create_StudyorWork extends AppCompatActivity implements View.OnClic
     String study_work;
     EditText name;
     EditText Description;
+    int amount;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,15 +35,32 @@ public class create_StudyorWork extends AppCompatActivity implements View.OnClic
         ChooseTime.setOnClickListener(this);
         ChooseDate = (Button) findViewById(R.id.chooseDate);
         ChooseDate.setOnClickListener(this);
+
+        SharedPreferences pref = getApplicationContext().getSharedPreferences("Study/work", 0);
+
+        amount = pref.getInt("Amount", -1);
+
+        if (amount == -1) {
+            amount = 0;
+        }
+
     }
 
     public void onClick(View v) {
         switch (v.getId()) {
 
             case R.id.save:
-                Storage studdy_work_rem = new Storage();
-                study_work= String.valueOf(name.getText())+";"+String.valueOf(Description.getText());
-                studdy_work_rem.Store_Event(study_work);
+
+                SharedPreferences pref = getApplicationContext().getSharedPreferences("Study/work", 0);
+                SharedPreferences.Editor saver = pref.edit();
+
+                saver.putString(String.valueOf(amount),String.valueOf(name.getText())+";"+String.valueOf(Description.getText()));
+                amount=amount+1;
+                saver.putInt("Amount",amount);
+
+
+                Intent intent = new Intent(create_StudyorWork.this,MainActivity.class);
+                startActivity(intent);
 
                 break;
 

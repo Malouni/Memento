@@ -3,6 +3,7 @@ package com.example.memento;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -17,6 +18,8 @@ public class Study_Work_Reminders extends AppCompatActivity implements View.OnCl
     TextView title,description;
 
     int amount_of_study_work_reminders;
+    int amount;
+    String first_string;
     ListView lv;
 
     @Override
@@ -39,20 +42,33 @@ public class Study_Work_Reminders extends AppCompatActivity implements View.OnCl
 
 
 
+        final SharedPreferences pref = getApplicationContext().getSharedPreferences("Study/work", 0);
+
+        amount = pref.getInt("Amount", -1);
+
         String[] list_study_work;
-        final Storage study_work = new Storage();
 
-        amount_of_study_work_reminders = study_work.get_amount_of_study_work_reminders();
-
-        if(amount_of_study_work_reminders ==0){
+        if(amount==-1){
             list_study_work = new String[1];
             list_study_work[0]="The list is empty";
-        } else{
-            list_study_work = new String[amount_of_study_work_reminders];
+        }else{
+            list_study_work = new String[amount];
 
-            for (int i = 0; i < list_study_work.length; i++) {
-                list_study_work[i] = study_work.get_study_work_reminder(i);
+            for(int i=0;i<amount;i++){
+
+                String event = pref.getString(String.valueOf(i),"");
+
+                for(int j=0;j<event.length();j++){
+
+                    if(event.charAt(j)==';'){
+                        first_string=event.substring(0,j);
+                    }
+
+                }
+
+                list_study_work[i]=first_string;
             }
+
 
         }
 
@@ -75,8 +91,7 @@ public class Study_Work_Reminders extends AppCompatActivity implements View.OnCl
                     description.setVisibility(View.VISIBLE);
                     save_button.setVisibility(View.VISIBLE);
                     back2.setVisibility(View.VISIBLE);
-                    String study_work_description = study_work.get_study_work_reminder(position);
-
+                    String study_work_description = pref.getString(String.valueOf(position),"");
                     for(int i=0;i<study_work_description.length();i++){
 
                         if(study_work_description.charAt(i)==';'){

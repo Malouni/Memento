@@ -15,6 +15,7 @@ public class Create_Event extends AppCompatActivity implements View.OnClickListe
     String event;
     EditText name;
     EditText Description;
+    int amount;
 
 
     @Override
@@ -35,8 +36,13 @@ public class Create_Event extends AppCompatActivity implements View.OnClickListe
         ChooseDate = (Button) findViewById(R.id.chooseDate);
         ChooseDate.setOnClickListener(this);
 
-        SharedPreferences pref = getApplicationContext().getSharedPreferences("Saver",0);
-        SharedPreferences.Editor saver = pref.edit();
+        SharedPreferences pref = getApplicationContext().getSharedPreferences("Event", 0);
+
+        amount = pref.getInt("Amount", -1);
+
+        if (amount == -1) {
+            amount = 0;
+        }
 
     }
 
@@ -45,9 +51,17 @@ public class Create_Event extends AppCompatActivity implements View.OnClickListe
         switch (v.getId()) {
 
             case R.id.save:
-                Storage event_rem = new Storage();
-                event= String.valueOf(name.getText())+";"+String.valueOf(Description.getText());
-                event_rem.Store_Event(event);
+
+                SharedPreferences pref = getApplicationContext().getSharedPreferences("Event", 0);
+                SharedPreferences.Editor saver = pref.edit();
+
+                saver.putString(String.valueOf(amount),String.valueOf(name.getText())+";"+String.valueOf(Description.getText()));
+                amount=amount+1;
+                saver.putInt("Amount",amount);
+
+
+                Intent intent = new Intent(Create_Event.this,MainActivity.class);
+                startActivity(intent);
 
                 break;
 

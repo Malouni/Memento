@@ -16,7 +16,7 @@ public class Create_Daily extends AppCompatActivity implements View.OnClickListe
     String daily_event;
     EditText name;
     EditText Description;
-    int amount=0;
+    int amount;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,25 +35,22 @@ public class Create_Daily extends AppCompatActivity implements View.OnClickListe
         ChooseTime = (Button) findViewById(R.id.ss);
         ChooseTime.setOnClickListener(this);
 
+        SharedPreferences pref = getApplicationContext().getSharedPreferences("Daily", 0);
 
+        amount = pref.getInt("Amount", -1);
 
-
+        if (amount == -1) {
+            amount = 0;
+        }
     }
 
-    @Override
     public void onClick(View v) {
         switch (v.getId()) {
 
             case R.id.save:
 
-                SharedPreferences pref = getApplicationContext().getSharedPreferences("Daily",0);
+                SharedPreferences pref = getApplicationContext().getSharedPreferences("Daily", 0);
                 SharedPreferences.Editor saver = pref.edit();
-
-                if(amount = saver.getInt("Amount",-1)){
-                    amount=0;
-                }else{
-                    amount = saver.getInt("Amount",-1);
-                }
 
                 saver.putString(String.valueOf(amount),String.valueOf(name.getText())+";"+String.valueOf(Description.getText()));
                 amount=amount+1;
