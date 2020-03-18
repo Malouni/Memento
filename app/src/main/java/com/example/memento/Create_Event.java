@@ -3,6 +3,7 @@ package com.example.memento;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -33,6 +34,9 @@ public class Create_Event extends AppCompatActivity implements View.OnClickListe
         ChooseTime.setOnClickListener(this);
         ChooseDate = (Button) findViewById(R.id.chooseDate);
         ChooseDate.setOnClickListener(this);
+
+        SharedPreferences pref = getApplicationContext().getSharedPreferences("Saver",0);
+        SharedPreferences.Editor saver = pref.edit();
 
     }
 

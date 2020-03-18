@@ -3,6 +3,7 @@ package com.example.memento;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -15,7 +16,7 @@ public class Create_Daily extends AppCompatActivity implements View.OnClickListe
     String daily_event;
     EditText name;
     EditText Description;
-
+    int amount=0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +37,7 @@ public class Create_Daily extends AppCompatActivity implements View.OnClickListe
 
 
 
+
     }
 
     @Override
@@ -43,14 +45,25 @@ public class Create_Daily extends AppCompatActivity implements View.OnClickListe
         switch (v.getId()) {
 
             case R.id.save:
-                Storage daily = new Storage();
-                daily_event= String.valueOf(name.getText())+";"+String.valueOf(Description.getText());
-                Log.d("Stored Date","asdasdasd");
-                Log.d("Stored Date",daily_event);
-                Log.d("Stored Date",String.valueOf(daily.get_daily_reminder(0)));
-                daily.Store_Daily(daily_event);
+
+                SharedPreferences pref = getApplicationContext().getSharedPreferences("Daily",0);
+                SharedPreferences.Editor saver = pref.edit();
+
+                if(amount = saver.getInt("Amount",-1)){
+                    amount=0;
+                }else{
+                    amount = saver.getInt("Amount",-1);
+                }
+
+                saver.putString(String.valueOf(amount),String.valueOf(name.getText())+";"+String.valueOf(Description.getText()));
+                amount=amount+1;
+                saver.putInt("Amount",amount);
+
+
                 Intent intent = new Intent(Create_Daily.this,MainActivity.class);
                 startActivity(intent);
+
+
 
                 break;
 
