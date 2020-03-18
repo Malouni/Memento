@@ -12,8 +12,8 @@ public class Create_Event extends AppCompatActivity implements View.OnClickListe
 
     Button back,ChooseLocation,ChooseDate,ChooseTime,Save;
     String event;
-    EditText name = (EditText) findViewById(R.id.Name);
-    EditText Description = (EditText) findViewById(R.id.Description);
+    EditText name;
+    EditText Description;
 
 
     @Override
@@ -21,6 +21,8 @@ public class Create_Event extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create__event);
 
+        name = (EditText) findViewById(R.id.Name);
+        Description = (EditText) findViewById(R.id.Description);
         Save = (Button) findViewById(R.id.save);
         Save.setOnClickListener(this);
         ChooseLocation = (Button) findViewById(R.id.ChooseLocation);
