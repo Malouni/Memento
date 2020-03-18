@@ -1,7 +1,5 @@
 package com.example.memento;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -11,22 +9,22 @@ import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 
-public class Study_Work_Reminders extends AppCompatActivity implements View.OnClickListener {
+import androidx.appcompat.app.AppCompatActivity;
+
+
+public class event_reminders extends AppCompatActivity implements View.OnClickListener {
 
     Button back,back2,save_button;
     TextView title,description;
-
-    int amount_of_study_work_reminders;
+    int amount_of_event_reminders;
     ListView lv;
 
-    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_study__work__reminders);
+        setContentView(R.layout.activity_event_reminders);
 
         back = (Button) findViewById(R.id.back);
         back.setOnClickListener(this);
-
         title = (TextView) findViewById(R.id.Title);
         description = (TextView) findViewById(R.id.Description);
 
@@ -39,34 +37,35 @@ public class Study_Work_Reminders extends AppCompatActivity implements View.OnCl
 
 
 
-        String[] list_study_work;
-        final Storage study_work = new Storage();
 
-        amount_of_study_work_reminders = study_work.get_amount_of_study_work_reminders();
 
-        if(amount_of_study_work_reminders ==0){
-            list_study_work = new String[1];
-            list_study_work[0]="The list is empty";
-        } else{
-            list_study_work = new String[amount_of_study_work_reminders];
+        final Storage  event = new Storage();
+        String[] list_event;
+        amount_of_event_reminders = event.get_amount_of_event_reminders();
 
-            for (int i = 0; i < list_study_work.length; i++) {
-                list_study_work[i] = study_work.get_study_work_reminder(i);
+
+        if(amount_of_event_reminders==0){
+            list_event = new String[1];
+            list_event[0]="The list is empty";
+        }
+
+        else{
+            list_event = new String[amount_of_event_reminders];
+
+            for (int i = 0; i < list_event.length; i++) {
+                list_event[i] = event.get_event_reminder(i);
             }
-
         }
 
         lv = (ListView) findViewById(R.id.listView);
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, list_study_work);
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, list_event);
         lv.setAdapter(adapter);
-
 
         lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position,
                                     long id) {
-                if(amount_of_study_work_reminders ==0){
-
+                if(amount_of_event_reminders==0){
 
                 }else{
                     lv.setVisibility(View.INVISIBLE);
@@ -75,15 +74,15 @@ public class Study_Work_Reminders extends AppCompatActivity implements View.OnCl
                     description.setVisibility(View.VISIBLE);
                     save_button.setVisibility(View.VISIBLE);
                     back2.setVisibility(View.VISIBLE);
-                    String study_work_description = study_work.get_study_work_reminder(position);
+                  String event_description = event.get_event_reminder(position);
 
-                    for(int i=0;i<study_work_description.length();i++){
+                  for(int i=0;i<event_description.length();i++){
 
-                        if(study_work_description.charAt(i)==';'){
-                            title.setText(String.valueOf(study_work_description.substring(0,i)));
-                            description.setText(String.valueOf(study_work_description.substring(i,study_work_description.length())));
-                        }
-                    }
+                      if(event_description.charAt(i)==';'){
+                         title.setText(String.valueOf(event_description.substring(0,i)));
+                         description.setText(String.valueOf(event_description.substring(i,event_description.length())));
+                      }
+                  }
 
                 }
             }
@@ -93,12 +92,11 @@ public class Study_Work_Reminders extends AppCompatActivity implements View.OnCl
 
     }
 
-
     public void onClick(View v) {
         switch (v.getId()) {
 
             case R.id.back:
-                Intent intent3 = new Intent(Study_Work_Reminders.this,MainActivity.class);
+                Intent intent3 = new Intent(event_reminders.this,MainActivity.class);
                 startActivity(intent3);
                 break;
 
@@ -123,12 +121,12 @@ public class Study_Work_Reminders extends AppCompatActivity implements View.OnCl
 
                 break;
 
+
             default:
                 break;
 
         }
     }
-
 
 
 }

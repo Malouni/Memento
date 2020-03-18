@@ -71,12 +71,12 @@
         app:layout_constraintVertical_bias="0.211">
 
         <Button
-            android:id="@+id/all_reminders"
+            android:id="@+id/Event_reminder"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:background="#ffff"
-            android:text="All Reminders" />
+            android:text="Event reminders" />
 
         <Button
             android:id="@+id/daily_reminders"

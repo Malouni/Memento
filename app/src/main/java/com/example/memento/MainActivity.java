@@ -9,7 +9,7 @@ import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
-    Button create_reminder,daily_reminders,all_reminders,study_work;
+    Button create_reminder,daily_reminders,event_reminder,study_work;
 
 
 
@@ -20,11 +20,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         create_reminder = (Button) findViewById(R.id.create_reminder);
         create_reminder.setOnClickListener(this);
-        study_work = (Button) findViewById(R.id.create_reminder);
+        study_work = (Button) findViewById(R.id.study_work);
         study_work.setOnClickListener(this);
-        all_reminders = (Button) findViewById(R.id.create_reminder);
-        all_reminders.setOnClickListener(this);
-        daily_reminders = (Button) findViewById(R.id.create_reminder);
+        event_reminder = (Button) findViewById(R.id.Event_reminder);
+        event_reminder.setOnClickListener(this);
+        daily_reminders = (Button) findViewById(R.id.daily_reminders);
         daily_reminders.setOnClickListener(this);
     }
 
@@ -38,14 +38,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
 
             case R.id.study_work:
+                Intent intent4 = new Intent(MainActivity.this,Study_Work_Reminders.class);
+                startActivity(intent4);
+                break;
 
-            case R.id.all_reminders:
-                Intent intent1 = new Intent(MainActivity.this,create_StudyorWork.class);
+            case R.id.Event_reminder:
+                Intent intent1 = new Intent(MainActivity.this,event_reminders.class);
                 startActivity(intent1);
                 break;
 
             case R.id.daily_reminders:
-                Intent intent3 = new Intent(MainActivity.this,Create_Daily.class);
+                Intent intent3 = new Intent(MainActivity.this,Daily_Reminder.class);
                 startActivity(intent3);
                 break;
 

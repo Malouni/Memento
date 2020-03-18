@@ -5,20 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/books"
-    tools:context=".Study_Work_Reminders">
-
-    <ListView
-        android:id="@+id/listView"
-        android:layout_width="348dp"
-        android:layout_height="458dp"
-        android:layout_marginTop="1dp"
-        android:layout_marginBottom="1dp"
-        android:background="#F8F7F7"
-        android:cacheColorHint="#FFFFFF"
-        app:layout_constraintBottom_toTopOf="@+id/back"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
+    tools:context=".event_reminders">
 
     <TextView
         android:id="@+id/textView"
@@ -27,7 +14,7 @@
         android:layout_marginTop="4dp"
         android:fontFamily="@font/italianno"
         android:gravity="center_vertical"
-        android:text="Study/Work Reminder"
+        android:text="Event Reminders"
         android:textAlignment="center"
         android:textColor="#FFC107"
         android:textSize="45sp"
@@ -93,12 +80,28 @@
         android:id="@+id/back"
         android:layout_width="172dp"
         android:layout_height="73dp"
-        android:layout_marginBottom="28dp"
+        android:layout_marginBottom="44dp"
         android:text="back"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent" />
 
+    <ListView
+        android:id="@+id/listView"
+        android:layout_width="348dp"
+        android:layout_height="458dp"
+        android:layout_marginTop="1dp"
+        android:layout_marginBottom="1dp"
+        android:background="#F8F7F7"
+        android:cacheColorHint="#FFFFFF"
+        app:layout_constraintBottom_toTopOf="@+id/back"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.523"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView"
+        app:layout_constraintVertical_bias="0.0">
+
+    </ListView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
