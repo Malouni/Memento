@@ -35,10 +35,13 @@ public class Study_Work_Reminders extends AppCompatActivity implements View.OnCl
 
 
         save_button = (Button) findViewById(R.id.save_button);
-        back.setOnClickListener(this);
+        save_button.setOnClickListener(this);
 
         back2 = (Button) findViewById(R.id.back_button2);
-        back.setOnClickListener(this);
+        back2.setOnClickListener(this);
+
+        save_button.setVisibility(View.INVISIBLE);
+        back2.setVisibility(View.INVISIBLE);
 
 
 
@@ -127,14 +130,14 @@ public class Study_Work_Reminders extends AppCompatActivity implements View.OnCl
                 break;
             case R.id.save_button:
 
-                /*
+
                 lv.setVisibility(View.VISIBLE);
                 back.setVisibility(View.VISIBLE);
                 title.setVisibility(View.INVISIBLE);
                 description.setVisibility(View.INVISIBLE);
                 save_button.setVisibility(View.INVISIBLE);
-                save.setVisibility(View.INVISIBLE);
-                */
+                back2.setVisibility(View.INVISIBLE);
+
 
                 break;
 

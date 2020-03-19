@@ -35,10 +35,10 @@ public class Daily_Reminder extends AppCompatActivity implements View.OnClickLis
 
 
         save_button = (Button) findViewById(R.id.save_button);
-        back.setOnClickListener(this);
+        save_button.setOnClickListener(this);
 
         back2_button = (Button) findViewById(R.id.back_button2);
-        back.setOnClickListener(this);
+        back2_button.setOnClickListener(this);
 
 
         save_button.setVisibility(View.INVISIBLE);
@@ -119,9 +119,6 @@ public class Daily_Reminder extends AppCompatActivity implements View.OnClickLis
         switch (v.getId()) {
 
             case R.id.back_button2:
-                Log.d("Xyi","rabotaet");
-                Intent intent1 = new Intent(Daily_Reminder.this,Daily_Reminder.class);
-                startActivity(intent1);
 
                 lv.setVisibility(View.VISIBLE);
                 back.setVisibility(View.VISIBLE);
