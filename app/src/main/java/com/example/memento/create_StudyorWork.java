@@ -36,7 +36,7 @@ public class create_StudyorWork extends AppCompatActivity implements View.OnClic
         ChooseDate = (Button) findViewById(R.id.chooseDate);
         ChooseDate.setOnClickListener(this);
 
-        SharedPreferences pref = getApplicationContext().getSharedPreferences("Study/work", 0);
+        SharedPreferences pref = getApplicationContext().getSharedPreferences("Study_work", 0);
 
         amount = pref.getInt("Amount", -1);
 
@@ -51,12 +51,13 @@ public class create_StudyorWork extends AppCompatActivity implements View.OnClic
 
             case R.id.save:
 
-                SharedPreferences pref = getApplicationContext().getSharedPreferences("Study/work", 0);
+                SharedPreferences pref = getApplicationContext().getSharedPreferences("Study_work", 0);
                 SharedPreferences.Editor saver = pref.edit();
 
                 saver.putString(String.valueOf(amount),String.valueOf(name.getText())+";"+String.valueOf(Description.getText()));
                 amount=amount+1;
                 saver.putInt("Amount",amount);
+                saver.commit();
 
 
                 Intent intent = new Intent(create_StudyorWork.this,MainActivity.class);

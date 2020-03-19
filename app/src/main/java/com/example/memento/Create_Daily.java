@@ -10,7 +10,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
-public class Create_Daily extends AppCompatActivity implements View.OnClickListener {
+public class       Create_Daily extends AppCompatActivity implements View.OnClickListener {
 
     Button back,ChooseLocation,ChooseTime,Save;
     String daily_event;
@@ -55,6 +55,7 @@ public class Create_Daily extends AppCompatActivity implements View.OnClickListe
                 saver.putString(String.valueOf(amount),String.valueOf(name.getText())+";"+String.valueOf(Description.getText()));
                 amount=amount+1;
                 saver.putInt("Amount",amount);
+                saver.commit();
 
 
                 Intent intent = new Intent(Create_Daily.this,MainActivity.class);

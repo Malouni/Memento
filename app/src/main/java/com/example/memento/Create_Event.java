@@ -58,6 +58,7 @@ public class Create_Event extends AppCompatActivity implements View.OnClickListe
                 saver.putString(String.valueOf(amount),String.valueOf(name.getText())+";"+String.valueOf(Description.getText()));
                 amount=amount+1;
                 saver.putInt("Amount",amount);
+                saver.commit();
 
 
                 Intent intent = new Intent(Create_Event.this,MainActivity.class);

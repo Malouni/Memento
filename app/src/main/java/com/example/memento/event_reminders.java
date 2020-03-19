@@ -29,13 +29,13 @@ public class event_reminders extends AppCompatActivity implements View.OnClickLi
         back = (Button) findViewById(R.id.back);
         back.setOnClickListener(this);
         title = (TextView) findViewById(R.id.Title);
-        description = (TextView) findViewById(R.id.Description);
+        description = (TextView) findViewById(R.id.Descrption_field);
 
 
         save_button = (Button) findViewById(R.id.save_button);
         back.setOnClickListener(this);
 
-        back2 = (Button) findViewById(R.id.back2);
+        back2 = (Button) findViewById(R.id.back_button2);
         back.setOnClickListener(this);
 
 
@@ -95,7 +95,7 @@ public class event_reminders extends AppCompatActivity implements View.OnClickLi
 
                         if(event_description.charAt(i)==';'){
                             title.setText(String.valueOf(event_description.substring(0,i)));
-                            description.setText(String.valueOf(event_description.substring(i,event_description.length())));
+                            description.setText(String.valueOf(event_description.substring(i+1,event_description.length())));
                         }
                     }
 
@@ -115,7 +115,7 @@ public class event_reminders extends AppCompatActivity implements View.OnClickLi
                 startActivity(intent3);
                 break;
 
-            case R.id.back2:
+            case R.id.back_button2:
                 lv.setVisibility(View.VISIBLE);
                 back.setVisibility(View.VISIBLE);
                 title.setVisibility(View.INVISIBLE);

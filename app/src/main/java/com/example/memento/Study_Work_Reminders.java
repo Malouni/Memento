@@ -31,18 +31,18 @@ public class Study_Work_Reminders extends AppCompatActivity implements View.OnCl
         back.setOnClickListener(this);
 
         title = (TextView) findViewById(R.id.Title);
-        description = (TextView) findViewById(R.id.Description);
+        description = (TextView) findViewById(R.id.Descrption_field);
 
 
         save_button = (Button) findViewById(R.id.save_button);
         back.setOnClickListener(this);
 
-        back2 = (Button) findViewById(R.id.back2);
+        back2 = (Button) findViewById(R.id.back_button2);
         back.setOnClickListener(this);
 
 
 
-        final SharedPreferences pref = getApplicationContext().getSharedPreferences("Study/work", 0);
+        final SharedPreferences pref = getApplicationContext().getSharedPreferences("Study_work", 0);
 
         amount = pref.getInt("Amount", -1);
 
@@ -96,7 +96,7 @@ public class Study_Work_Reminders extends AppCompatActivity implements View.OnCl
 
                         if(study_work_description.charAt(i)==';'){
                             title.setText(String.valueOf(study_work_description.substring(0,i)));
-                            description.setText(String.valueOf(study_work_description.substring(i,study_work_description.length())));
+                            description.setText(String.valueOf(study_work_description.substring(i+1,study_work_description.length())));
                         }
                     }
 
@@ -117,7 +117,7 @@ public class Study_Work_Reminders extends AppCompatActivity implements View.OnCl
                 startActivity(intent3);
                 break;
 
-            case R.id.back2:
+            case R.id.back_button2:
                 lv.setVisibility(View.VISIBLE);
                 back.setVisibility(View.VISIBLE);
                 title.setVisibility(View.INVISIBLE);
