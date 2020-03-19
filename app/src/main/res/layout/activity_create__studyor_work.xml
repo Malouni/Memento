@@ -86,7 +86,7 @@
         app:layout_constraintTop_toTopOf="@+id/guideline25" />
 
     <TextView
-        android:id="@+id/ss"
+        android:id="@+id/Remind_when"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginStart="8dp"

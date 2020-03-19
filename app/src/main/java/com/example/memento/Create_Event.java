@@ -8,20 +8,34 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 
 public class Create_Event extends AppCompatActivity implements View.OnClickListener {
 
-    Button back,ChooseLocation,ChooseDate,ChooseTime,Save;
-    String event;
+    Button back,ChooseLocation,ChooseDate,ChooseTime,Save,save_date;
+
     EditText name;
     EditText Description;
+    TextView remind_when;
     int amount;
+    LinearLayout linearLayout;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create__event);
+
+        linearLayout = (LinearLayout) findViewById(R.id.LinearLayout);
+        remind_when = (TextView) findViewById(R.id.Remind_when);
+        save_date = (Button) findViewById(R.id.Button_Save_Date);
+        save_date.setOnClickListener(this);
+        save_date.setVisibility(View.INVISIBLE);
+        linearLayout.setVisibility(View.INVISIBLE);
+
+
+
 
         name = (EditText) findViewById(R.id.Name);
         Description = (EditText) findViewById(R.id.Description);
@@ -35,6 +49,13 @@ public class Create_Event extends AppCompatActivity implements View.OnClickListe
         ChooseTime.setOnClickListener(this);
         ChooseDate = (Button) findViewById(R.id.chooseDate);
         ChooseDate.setOnClickListener(this);
+
+
+
+
+
+
+
 
         SharedPreferences pref = getApplicationContext().getSharedPreferences("Event", 0);
 
@@ -74,10 +95,36 @@ public class Create_Event extends AppCompatActivity implements View.OnClickListe
 
             case R.id.ChooseLocation:
 
+                break;
+
+
+            case R.id.Button_Save_Date:
+                Save.setVisibility(View.VISIBLE);
+                remind_when.setVisibility(View.VISIBLE);
+                Description.setVisibility(View.VISIBLE);
+                ChooseLocation.setVisibility(View.VISIBLE);
+                ChooseTime.setVisibility(View.VISIBLE);
+                ChooseDate.setVisibility(View.VISIBLE);
+                name.setVisibility(View.VISIBLE);
+                back.setVisibility(View.VISIBLE);
+                save_date.setVisibility(View.INVISIBLE);
+                linearLayout.setVisibility(View.INVISIBLE);
 
                 break;
 
             case R.id.chooseDate:
+                Save.setVisibility(View.INVISIBLE);
+                remind_when.setVisibility(View.INVISIBLE);
+                Description.setVisibility(View.INVISIBLE);
+                ChooseLocation.setVisibility(View.INVISIBLE);
+                ChooseTime.setVisibility(View.INVISIBLE);
+                ChooseDate.setVisibility(View.INVISIBLE);
+                name.setVisibility(View.INVISIBLE);
+                back.setVisibility(View.INVISIBLE);
+                save_date.setVisibility(View.VISIBLE);
+                linearLayout.setVisibility(View.VISIBLE);
+
+
 
 
                 break;

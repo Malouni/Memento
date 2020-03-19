@@ -84,7 +84,7 @@
         app:layout_constraintTop_toTopOf="@+id/guideline25" />
 
     <TextView
-        android:id="@+id/ss"
+        android:id="@+id/Remind_when"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginStart="8dp"
@@ -229,9 +229,10 @@
         app:layout_constraintGuide_percent="0.85" />
 
     <LinearLayout
+        android:id="@+id/LinearLayout"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:background="#B7EB690D"
+        android:background="#F7F4F4"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="@+id/ChooseLocation"
         app:layout_constraintEnd_toStartOf="@+id/guideline11"
@@ -247,10 +248,14 @@
     </LinearLayout>
 
     <Button
-        android:id="@+id/button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Button"
+        android:id="@+id/Button_Save_Date"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginBottom="64dp"
+        android:text="Save the date"
         app:layout_constraintBottom_toTopOf="@+id/guideline20"
         app:layout_constraintEnd_toStartOf="@+id/guideline11"
         app:layout_constraintStart_toStartOf="@+id/guideline18"

@@ -5,7 +5,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -32,7 +31,7 @@ public class       Create_Daily extends AppCompatActivity implements View.OnClic
         ChooseLocation.setOnClickListener(this);
         back = (Button) findViewById(R.id.back);
         back.setOnClickListener(this);
-        ChooseTime = (Button) findViewById(R.id.ss);
+        ChooseTime = (Button) findViewById(R.id.Remind_when);
         ChooseTime.setOnClickListener(this);
 
         SharedPreferences pref = getApplicationContext().getSharedPreferences("Daily", 0);
@@ -66,7 +65,7 @@ public class       Create_Daily extends AppCompatActivity implements View.OnClic
                 break;
 
 
-            case R.id.ss:
+            case R.id.Remind_when:
 
 
                 break;
