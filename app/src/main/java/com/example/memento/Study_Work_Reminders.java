@@ -10,6 +10,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.Spinner;
 import android.widget.TextView;
 
 public class Study_Work_Reminders extends AppCompatActivity implements View.OnClickListener {
@@ -17,10 +18,12 @@ public class Study_Work_Reminders extends AppCompatActivity implements View.OnCl
     Button back,back2,save_button;
     TextView title,description;
 
-    int amount_of_study_work_reminders;
+
     int amount;
     String first_string;
     ListView lv;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,12 +62,12 @@ public class Study_Work_Reminders extends AppCompatActivity implements View.OnCl
 
             for(int i=0;i<amount;i++){
 
-                String event = pref.getString(String.valueOf(i),"");
+                String study_work = pref.getString(String.valueOf(i),"");
 
-                for(int j=0;j<event.length();j++){
+                for(int j=0;j<study_work.length();j++){
 
-                    if(event.charAt(j)==';'){
-                        first_string=event.substring(0,j);
+                    if(study_work.charAt(j)==';'){
+                        first_string=study_work.substring(0,j);
                     }
 
                 }
@@ -84,7 +87,7 @@ public class Study_Work_Reminders extends AppCompatActivity implements View.OnCl
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position,
                                     long id) {
-                if(amount_of_study_work_reminders ==0){
+                if(amount==0){
 
 
                 }else{

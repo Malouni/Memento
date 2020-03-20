@@ -18,8 +18,10 @@ public class Daily_Reminder extends AppCompatActivity implements View.OnClickLis
     Button back,back2_button,save_button;
     TextView title,description;
     ListView lv;
-    int amount;
+    int amount,semiPosition;
+    String hours,minutes;
     String first_string;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,6 +47,8 @@ public class Daily_Reminder extends AppCompatActivity implements View.OnClickLis
         back2_button.setVisibility(View.INVISIBLE);
 
         final SharedPreferences pref = getApplicationContext().getSharedPreferences("Daily", 0);
+
+
 
         amount = pref.getInt("Amount", -1);
 
@@ -107,8 +111,12 @@ public class Daily_Reminder extends AppCompatActivity implements View.OnClickLis
 
 
 
+                    }
+
+
+
                 }
-            }
+
         });
 
 
