@@ -60,7 +60,7 @@ public class create_StudyorWork extends AppCompatActivity implements View.OnClic
         calendar.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
             @Override
             public void onSelectedDayChange(@NonNull CalendarView view, int year, int month, int dayOfMonth) {
-                date = dayOfMonth +"/"+month+"/"+year;
+                date = dayOfMonth +"-"+month+"-"+year;
             }
         });
 

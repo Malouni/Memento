@@ -59,7 +59,7 @@ public class Create_Event extends AppCompatActivity implements View.OnClickListe
         calendar.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
             @Override
             public void onSelectedDayChange(@NonNull CalendarView view, int year, int month, int dayOfMonth) {
-                date = dayOfMonth +"/"+month+"/"+year;
+                date = dayOfMonth +"-"+month+"-"+year;
             }
         });
 

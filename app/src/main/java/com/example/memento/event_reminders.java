@@ -16,7 +16,7 @@ import androidx.appcompat.app.AppCompatActivity;
 public class event_reminders extends AppCompatActivity implements View.OnClickListener {
 
     Button back,back2,save_button;
-    TextView title,description;
+    TextView title,description,time_text,date_text;
     int amount_of_event_reminders;
     ListView lv;
     String first_string;
@@ -25,6 +25,11 @@ public class event_reminders extends AppCompatActivity implements View.OnClickLi
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_event_reminders);
+
+        time_text = (TextView) findViewById(R.id.Time_field);
+        date_text = (TextView) findViewById(R.id.date_field);
+
+
 
         back = (Button) findViewById(R.id.back);
         back.setOnClickListener(this);
@@ -40,6 +45,11 @@ public class event_reminders extends AppCompatActivity implements View.OnClickLi
 
         save_button.setVisibility(View.INVISIBLE);
         back2.setVisibility(View.INVISIBLE);
+
+        title.setVisibility(View.INVISIBLE);
+
+        time_text.setVisibility(View.INVISIBLE);
+        date_text.setVisibility(View.INVISIBLE);
 
 
 
@@ -92,13 +102,30 @@ public class event_reminders extends AppCompatActivity implements View.OnClickLi
                     description.setVisibility(View.VISIBLE);
                     save_button.setVisibility(View.VISIBLE);
                     back2.setVisibility(View.VISIBLE);
+                    time_text.setVisibility(View.VISIBLE);
+                    date_text.setVisibility(View.VISIBLE);
+
+
                     String event_description = pref.getString(String.valueOf(position),"");
+
+                    int position_title=0,position_desciption=0;
 
                     for(int i=0;i<event_description.length();i++){
 
+
+
+
                         if(event_description.charAt(i)==';'){
                             title.setText(String.valueOf(event_description.substring(0,i)));
-                            description.setText(String.valueOf(event_description.substring(i+1,event_description.length())));
+                            position_title=i;
+
+                        }else if(event_description.charAt(i)=='@'){
+                            description.setText(event_description.substring(position_title+1,i));
+                            position_desciption=i;
+                        } else if(event_description.charAt(i)=='#'){
+
+                            date_text.setText("Date: "+event_description.substring(position_desciption+1,i));
+                            time_text.setText("Time: "+event_description.substring(i+1,event_description.length()));
                         }
                     }
 
@@ -125,6 +152,8 @@ public class event_reminders extends AppCompatActivity implements View.OnClickLi
                 description.setVisibility(View.INVISIBLE);
                 save_button.setVisibility(View.INVISIBLE);
                 back2.setVisibility(View.INVISIBLE);
+                time_text.setVisibility(View.INVISIBLE);
+                date_text.setVisibility(View.INVISIBLE);
                 break;
             case R.id.save_button:
 
@@ -135,6 +164,8 @@ public class event_reminders extends AppCompatActivity implements View.OnClickLi
                 description.setVisibility(View.INVISIBLE);
                 save_button.setVisibility(View.INVISIBLE);
                 back2.setVisibility(View.INVISIBLE);
+                time_text.setVisibility(View.INVISIBLE);
+                date_text.setVisibility(View.INVISIBLE);
 
 
                 break;
